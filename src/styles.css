@@ -1,0 +1,466 @@
+/* 사용자 사이트(Story Dam Ieum)와 같은 색을 씁니다. */
+:root {
+  --teal: #287271;
+  --dark: #174e50;
+  --border: #d9e6e3;
+  --muted: #586f64;
+  --brown: #c47a3a;
+  --bg: #f4f8f6;
+  --card: #ffffff;
+  --text: #1f3a36;
+  --danger: #b4412f;
+  --soft: #e8f2ef;
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  line-height: 1.55;
+}
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+h1 {
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+  color: var(--dark);
+  font-weight: 600;
+}
+h2 {
+  font-size: 1.1rem;
+  margin: 0 0 14px;
+  color: var(--dark);
+  font-weight: 600;
+}
+code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9em;
+}
+.muted {
+  color: var(--muted);
+}
+.small {
+  font-size: 0.85rem;
+}
+.center {
+  text-align: center;
+  margin-top: 80px;
+}
+.prewrap {
+  white-space: pre-wrap;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--dark);
+}
+.brand small {
+  font-weight: 400;
+  color: var(--brown);
+  margin-left: 4px;
+}
+.mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--teal);
+  box-shadow: inset 0 -8px 0 rgba(255, 246, 229, 0.35);
+}
+.who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+}
+.login {
+  max-width: 520px;
+  margin: 40px auto;
+}
+.login form {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+.field span {
+  font-size: 0.9rem;
+  color: var(--dark);
+}
+input:not([type='checkbox']),
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+input:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(40, 114, 113, 0.35);
+  outline-offset: 2px;
+}
+textarea {
+  resize: vertical;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+.check.boxed {
+  align-self: end;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--teal);
+}
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px 14px;
+  margin: 0;
+}
+legend {
+  padding: 0 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 9px 16px;
+  border: 1px solid transparent;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.primary {
+  background: var(--teal);
+  color: #fff;
+}
+.primary:hover:not(:disabled) {
+  background: var(--dark);
+}
+.ghost {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--dark);
+}
+.ghost:hover:not(:disabled) {
+  background: var(--soft);
+}
+.danger {
+  background: var(--danger);
+  color: #fff;
+}
+.link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--teal);
+  text-decoration: underline;
+}
+.full {
+  width: 100%;
+}
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.alert,
+.info {
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+}
+.alert {
+  background: #fbebe7;
+  color: #8a2f20;
+  border: 1px solid #f0c9bf;
+}
+.info {
+  background: var(--soft);
+  color: var(--dark);
+  border: 1px solid var(--border);
+}
+.login .alert {
+  margin: 0;
+}
+.help {
+  margin-top: 18px;
+  font-size: 0.9rem;
+}
+.help summary {
+  cursor: pointer;
+  color: var(--teal);
+}
+.help ol {
+  padding-left: 20px;
+}
+.help li {
+  margin: 6px 0;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.toolbar p {
+  margin: 0;
+}
+.toolbar-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.badge {
+  font-size: 0.8rem;
+  background: #fdf1e3;
+  color: #8a5320;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+.list {
+  padding: 8px;
+  display: grid;
+  gap: 4px;
+}
+.item {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  background: none;
+  border: 1px solid transparent;
+  padding: 10px 12px;
+}
+.item:hover {
+  background: var(--soft);
+}
+.item.active {
+  background: var(--soft);
+  border-color: var(--border);
+}
+.item.new {
+  color: var(--teal);
+  font-weight: 600;
+}
+.item strong {
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.tag {
+  font-size: 0.75rem;
+  background: var(--brown);
+  color: #fff;
+  border-radius: 6px;
+  padding: 1px 6px;
+  margin-right: 6px;
+}
+.pad {
+  padding: 8px 12px;
+  margin: 0;
+}
+.card form {
+  display: grid;
+  gap: 14px;
+}
+.card form .row {
+  margin-top: 0;
+}
+.preview {
+  margin-top: 22px;
+  border-top: 1px dashed var(--border);
+  padding-top: 14px;
+}
+.preview p {
+  margin: 4px 0;
+}
+.preview-title {
+  font-weight: 500;
+}
+.connect {
+  margin-top: 18px;
+}
+.url {
+  background: var(--soft);
+  padding: 8px 12px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .columns,
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+  .top {
+    padding: 12px 16px;
+  }
+  main {
+    padding: 20px 16px 48px;
+  }
+}
+
+/* 2026-10-15 추가: 탭, 게시 기간, 자주 묻는 질문, 기록, 연결 상태 */
+.tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0 0 16px;
+}
+.tabs button {
+  background: #fff;
+  border: 1px solid var(--border);
+  color: var(--dark);
+}
+.tabs button.active {
+  background: var(--teal);
+  border-color: var(--teal);
+  color: #fff;
+}
+.muted-tag {
+  background: #8a9a94;
+}
+.item.ended strong,
+.item.scheduled strong {
+  color: var(--muted);
+}
+.hint {
+  margin: -6px 0 0;
+}
+.faq-row {
+  border-top: 1px solid var(--border);
+  padding: 14px 0;
+  display: grid;
+  gap: 10px;
+}
+.faq-row .row {
+  margin-top: 0;
+}
+.faq-look summary {
+  cursor: pointer;
+}
+.faq-preview {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+.history-list {
+  padding-left: 20px;
+}
+.row.spread {
+  justify-content: space-between;
+  margin: 4px 8px 8px;
+}
+.small-button {
+  padding: 4px 10px;
+  font-size: 0.85rem;
+}
+.stack {
+  display: grid;
+  gap: 18px;
+}
+.grow {
+  flex: 1;
+  min-width: 220px;
+}
+.narrow {
+  max-width: 240px;
+}
+.align-end {
+  align-self: flex-end;
+}
+.status-lines {
+  list-style: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--soft);
+  margin: 14px 0;
+  display: grid;
+  gap: 6px;
+}
+.status-lines.fail {
+  background: #fbebe7;
+  color: #8a2f20;
+}
+.status-lines.warn {
+  background: #fdf1e3;
+  color: #6e4319;
+}
+h3 {
+  font-size: 1rem;
+  margin: 18px 0 6px;
+  color: var(--dark);
+}
+.preview a,
+.faq-look a {
+  color: var(--teal);
+}

@@ -1,0 +1,44 @@
+# main 브랜치에 코드가 올라오면 관리자 화면을 만들어 깃허브 페이지에 올립니다.
+# 공지 파일(data/)만 바뀐 경우에는 화면을 다시 만들 필요가 없어서 건너뜁니다.
+name: Deploy admin to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'data/**'
+      - '**.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
